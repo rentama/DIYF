@@ -1,0 +1,7 @@
+<%= bootstrap_form_for(@category) do |f| %>
+  <%= f.select :name, [["Drink", "Drink"], ["Food", "Food"]], { label: "choose category" }, { class: "selectpicker" } %>
+  <%= f.text_field :fermentation_name, label_class: "fermentation name" %>
+  <div class="text-center" style="padding: 30px;">
+    <%= f.submit "送信", class: "btn btn-success" %>
+  </div>
+<% end %>
