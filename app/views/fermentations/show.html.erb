@@ -1,18 +1,20 @@
-<ul class="media-list">
-  <li class="media">
-    <div class="media-left">
+<div class="container">
+    <div class="page-header">
+        <h1 id="timeline">Fermentaions/Products</h1>
     </div>
-    <div class="media-body">
-      <h4 class="media-heading">ワイン</h4>
-      <div class="media">
-        <div class="media-left media-middle">
-        </div>
-        <div class="media-body">
-          <%= link_to category_fermentation_product_url(category_id: 1, fermentation_id: 1, id: 1) do%>
-            <h4 class="media-heading">・白ワイン</h4>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </li>
-</ul>
+    <ul class="timeline">
+        <li>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h3 class="timeline-title"><%= @fermentation.name %></h4>
+            </div>
+
+            <% @fermentation.products.each do |product| %>
+              <div class="timeline-body">
+                <h4><%= link_to product.name, category_fermentation_product_path(@fermentation.category, @fermentation, product) %></h4>
+              </div>
+            <% end %>
+          </div>
+        </li>
+    </ul>
+</div>

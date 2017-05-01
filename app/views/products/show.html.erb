@@ -1,1 +1,114 @@
-ワインの詳細ページ
+<section class="about_container bg-gray">
+
+
+	<div class="container ">
+
+	<div class="row">
+  	<div class="col-sm-12">
+  	<h1 class="section_title1"><%= @product.name %>/<%= @product.fermentation.name %></h1>
+  	<p>Text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+    </div>
+  </div>
+
+    	<div class="row">
+        <div class="col-md-12">
+        <!-- Nav tabs -->
+        <div class="service_tab">
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Tab1 </a></li>
+            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Tab2 </a></li>
+            <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Tab3 </a></li>
+            <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Tab4 </a></li>
+        </ul>
+    <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="home">
+    					<div class="col-sm-6 car_image">
+    					<img src="https://lh6.googleusercontent.com/-y-MY2satK-E/AAAAAAAAAAI/AAAAAAAAAJU/ER_hFddBheQ/photo.jpg" class="img-responsive" alt="carpic1">
+    					</div>
+    					<div class="col-sm-6">
+                <h3><%= @user.name %> produced</h3>
+                <h4>place: <%= @product.place %></h4>
+                <h4>quantity: <%= @product.quantity %>ml</h4>
+                <h4>produces_at: <%= @product.produced_at %></h4>
+                <h4>process:</h4>
+                <p><%= @product.process %></p>
+                <h4>details:</h4>
+      					<p><%= @product.detail %></p>
+                <h4>ingredients</h4>
+                <ul class="list-unstyled service_feture">
+                  <% @product.ingredients.each do |ingredient| %>
+                    <li>・<%= ingredient.name %>:<%= ingredient.quantity %></li>
+                  <% end %>
+                </ul>
+                <% if @product.user_id = current_user.id %>
+                  <%= link_to edit_category_fermentation_product_path do %>
+                    <button type="button" class="btn btn-default btn-lg">編集</button>
+                  <% end %>
+                  <%= link_to category_fermentation_product_path, method: :delete, data: {confirm: "本当に削除しますか？"} do %>
+                    <button type="button" class="btn btn-default btn-lg">削除</button>
+                  <% end %>
+                <% end %>
+    					</div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="profile">
+              <div class="col-sm-6 car_image">
+    						<img src="https://cdn.pixabay.com/photo/2016/12/04/21/22/snow-man-1882635_960_720.jpg" class="img-responsive" alt="carpic1">
+    					</div>
+        			<div class="col-sm-6">
+                <h3>Title Area 2</h3>
+        				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+        										dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        										It has survived not only five centuries, but also the leap into electronic
+        typesetting, remaining essentially unchanged.
+         It was popularised in the 1960s with the release of Letraset sheets containing .
+
+                </p>
+                <ul class="list-unstyled service_feture"><li>Lorem Ipsum passages,</li><li>
+                And more recently with desktop </li><li>
+                Publishing software like Aldus </li><li>
+                PageMaker including versions </li></ul>
+        			</div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="messages">
+              <div class="col-sm-6 car_image">
+      					<img src="http://images.all-free-download.com/images/graphiclarge/animal_background_basket_bird_cat_close_closeup_603074.jpg" class="img-responsive" alt="carpic1">
+      			  </div>
+        			<div class="col-sm-6"><h3>Title Area 3</h3>
+        				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+        					dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        					It has survived not only five centuries, but also the leap into electronic
+        typesetting, remaining essentially unchanged.
+        It was popularised in the 1960s with the release of Letraset sheets containing .
+                </p>
+                <ul class="list-unstyled service_feture"><li>Lorem Ipsum passages,</li><li>
+                And more recently with desktop </li><li>
+                Publishing software like Aldus </li><li>
+                PageMaker including versions </li></ul>
+            	</div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="settings">
+              <div class="col-sm-6 car_image">
+    						<img src="https://cdn.pixabay.com/photo/2016/11/08/05/16/ancient-1807518_960_720.jpg" class="img-responsive" alt="carpic1">
+    					</div>
+    					<div class="col-sm-6"><h3>Title Area 4</h3>
+    						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+    						dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+    						It has survived not only five centuries, but also the leap into electronic
+    typesetting, remaining essentially unchanged.
+    It was popularised in the 1960s with the release of Letraset sheets containing .
+                </p>
+                <ul class="list-unstyled service_feture">
+                  <li>Lorem Ipsum passages,</li>
+                  <li>And more recently with desktop </li>
+                  <li>Publishing software like Aldus </li>
+                  <li>PageMaker including versions</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!--service_section-->

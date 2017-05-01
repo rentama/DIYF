@@ -2,6 +2,7 @@ class CategoriesController < ApplicationController
   authorize_resource
 
   def index
+    @categories = Category.all.includes(:fermentations)
   end
 
   def new
@@ -10,8 +11,8 @@ class CategoriesController < ApplicationController
 
   def create
     data = create_params
-    category = Category.create(name: data[:name])
-    fermentation = category.fermentations.create(name: data[:fermentation_name])
+    category = Category.where(name: data[:name]).first_or_create
+    fermentation = category.fermentations.where(name: data[:fermentation_name]).first_or_create
     redirect_to new_category_fermentation_product_url(category, fermentation)
   end
 

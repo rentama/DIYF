@@ -1,0 +1,11 @@
+<%= bootstrap_form_for([@category, @fermentation, @product]) do |f| %>
+  <%= f.text_field :name, label_class: "名前" %>
+  <%= f.text_field :quantity, label_class: "製造量" %>
+  <%= f.text_field :place, label_class: "製造場所" %>
+  <%= f.date_select :produced_at, {}, class: 'form-control' %>
+  <%= f.text_field :process, label_class: "製造過程" %>
+  <%= f.text_field :detail, label_class: "詳細" %>
+  <div class="text-center" style="padding: 30px;">
+    <%= f.submit "送信", class: "btn btn-success" %>
+  </div>
+<% end %>
